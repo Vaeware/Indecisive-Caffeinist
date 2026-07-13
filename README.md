@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ☕ Indecisive Caffeinist
 
-## Getting Started
+Struggling to choose your caffeine fix today? Let the virtual barista balance the flavor profiles and curate a perfectly layered custom coffee recipe for you. 
 
-First, run the development server:
+"Indecisive Caffeinist" is a minimalist, editorial web application built with **Next.js** and **Tailwind CSS**. It features a state-driven espresso extraction animation and displays your unique beverage recipe on a beautifully designed, retro cafe guest check.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **State-Driven Animation:** A fully interactive, frame-by-frame espresso machine graphic that pours rich espresso and crema into a demitasse glass while your recipe generates.
+- **Authentic Guest Check Design:** Your curated beverage options are mapped onto a high-fidelity, vintage rose-red server notepad complete with line rulings, margin guidelines, a subtotal breakdown, and a tear-off receipt stub.
+- **Bespoke Coffee Combinations:** Randomly generates combinations from standard coffee bases, milk choices, handcrafted syrups, cold foam toppings, and finishing garnishes.
+- **Responsive Layout:** Perfectly scaled to a clean 2x3 ratio (360px by 540px) that works flawlessly on desktop monitors and mobile touchscreens.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Built With
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 15** (App Router)
+- **React** (State-driven animation hooks)
+- **Tailwind CSS** (Sophisticated, earthy color palette)
+- **TypeScript** (Type safety)
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+To run the project locally on your machine:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/vaeware/indecisive-caffeinist.git](https://github.com/vaeware/indecisive-caffeinist.git)
