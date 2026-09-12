@@ -2,32 +2,33 @@
 
 import { useState } from 'react';
 
-const bases = ['Espresso Latte', 'Cold Brew Nitro', 'Caffè Americano', 'Chai Wallah Latte', 'Ceremonial Matcha Latte', 'Cloud Macchiato'];
+const bases = ['Espresso Latte', 'Cold Brew Nitro', 'Americano', 'Chai Latte', 'Matcha Latte', 'Cloud Macchiato'];
 const temps = ['Iced', 'Hot'];
-const milks = ['Oat Milk', 'Almond Milk', 'Organic Whole Milk', 'Coconut Milk', 'Breve (Half & Half)'];
+const milks = ['Oat Milk', 'Almond Milk', 'Whole Milk', 'Coconut Milk', 'Breve (Half & Half)'];
 const syrups = [
-  'Madagascar Vanilla', 
-  'Smoked Salted Caramel', 
-  'Toasted Hazelnut', 
+  'Vanilla', 
+  'Salted Caramel', 
+  'Hazelnut', 
   'White Chocolate Mocha', 
-  'Brown Sugar Cinnamon', 
-  'Wild Lavender', 
-  'Roasted Pistachio', 
+  'Brown Sugar', 
+  'Caramel', 
+  'Pistachio', 
+  'Banana',
   'No Syrup'
 ];
 const coldFoams = [
-  'Vanilla Sweet Cream Foam', 
+  'Vanilla Sweet Cream Cold Foam', 
   'Salted Caramel Cold Foam', 
-  'Matcha Velvet Foam', 
-  'Belgian Chocolate Foam', 
+  'Banana Cold Foam', 
+  'Chocolate Cream Cold Foam', 
   'Brown Sugar Cold Foam',
   'No Cold Foam'
 ];
 const toppings = [
-  'Ceylon Cinnamon Dusting', 
-  'Dark Cocoa Shavings', 
-  'Caramel Ribbon Drizzle', 
-  'Gourmet Chocolate Drizzle', 
+  'Cinnamon Powder', 
+  'Chocolate Shavings', 
+  'Caramel Drizzle', 
+  'Chocolate Drizzle', 
   'Flaky Sea Salt Sprinkles',
   'No Topping'
 ];
@@ -85,116 +86,15 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden bg-[#D8C7BC]">
+    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden">
       
-      {/* COFFEE SHOP BACKGROUND ILLUSTRATION (Faithful to reference image) */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <svg 
-          viewBox="0 0 1440 900" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-full h-full object-cover"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          {/* Main Cafe Walls & Ceiling */}
-          <rect width="1440" height="900" fill="#DECBC2" />
-          <rect width="1440" height="100" fill="#93756C" />
-          <rect y="100" width="1440" height="24" fill="#755850" />
-
-          {/* Large Panoramic Cafe Window */}
-          <rect x="60" y="140" width="840" height="520" rx="4" fill="#EAD9CE" stroke="#684D46" strokeWidth="12" />
-          
-          {/* Window Panes and Frame Bars */}
-          <line x1="60" y1="230" x2="900" y2="230" stroke="#684D46" strokeWidth="8" />
-          <line x1="310" y1="140" x2="310" y2="660" stroke="#684D46" strokeWidth="8" />
-          <line x1="680" y1="140" x2="680" y2="660" stroke="#684D46" strokeWidth="8" />
-
-          {/* Warm Cityscape Skyline View Through Window */}
-          <rect x="90" y="320" width="70" height="340" fill="#D3B8AA" />
-          <rect x="180" y="270" width="95" height="390" fill="#CBB0A2" />
-          <rect x="340" y="340" width="110" height="320" fill="#D3B8AA" />
-          <rect x="470" y="290" width="75" height="370" fill="#C4A89A" />
-          <rect x="560" y="360" width="90" height="300" fill="#CEB4A6" />
-          <rect x="710" y="310" width="130" height="350" fill="#CBB0A2" />
-
-          {/* Warm Sunlight Angle from Window */}
-          <polygon points="60,140 680,140 1020,900 120,900" fill="#FDF3EB" opacity="0.25" />
-
-          {/* Hanging Pendant Fixtures */}
-          <line x1="280" y1="124" x2="280" y2="210" stroke="#523B35" strokeWidth="2.5" />
-          <rect x="272" y="210" width="16" height="36" rx="4" fill="#C27A67" />
-          <line x1="510" y1="124" x2="510" y2="230" stroke="#523B35" strokeWidth="2.5" />
-          <rect x="502" y="230" width="16" height="36" rx="4" fill="#C27A67" />
-
-          {/* Right Wall Artwork Poster Frame */}
-          <rect x="1270" y="150" width="135" height="390" rx="3" fill="#FAF5F0" stroke="#5E433C" strokeWidth="8" />
-          <rect x="1285" y="165" width="105" height="360" fill="#785952" />
-          <path d="M1300,320 Q1337,250 1375,320" stroke="#F1DFD5" strokeWidth="3" fill="none" opacity="0.7" />
-          <circle cx="1337" cy="240" r="18" fill="#D49A8D" opacity="0.8" />
-          <line x1="1300" y1="360" x2="1375" y2="360" stroke="#F1DFD5" strokeWidth="2" opacity="0.6" />
-          <line x1="1310" y1="380" x2="1365" y2="380" stroke="#F1DFD5" strokeWidth="2" opacity="0.6" />
-
-          {/* Three Open Cafe Shelves */}
-          <rect x="940" y="290" width="310" height="14" rx="2" fill="#75564E" />
-          <rect x="940" y="390" width="310" height="14" rx="2" fill="#75564E" />
-          <rect x="940" y="490" width="310" height="14" rx="2" fill="#75564E" />
-
-          {/* Ceramic Bottles, Jars, and Cups (Muted Terracottas & Pinks) */}
-          <rect x="965" y="235" width="28" height="55" rx="3" fill="#D08878" />
-          <rect x="1005" y="250" width="34" height="40" rx="3" fill="#E4C8BA" />
-          <path d="M1060,250 h26 v30 a8,8 0 0 1 -8,8 h-10 a8,8 0 0 1 -8,-8 z" fill="#BE7D6F" />
-          <rect x="1115" y="230" width="32" height="60" rx="4" fill="#B38676" />
-          <rect x="1170" y="248" width="26" height="42" rx="2" fill="#DFA99C" />
-
-          <rect x="970" y="348" width="24" height="42" rx="2" fill="#A87568" />
-          <rect x="1010" y="338" width="36" height="52" rx="3" fill="#D08878" />
-          <circle cx="1080" cy="365" r="16" fill="#DEC0B3" />
-          <rect x="1120" y="345" width="40" height="45" rx="3" fill="#BE7D6F" />
-          <rect x="1185" y="352" width="22" height="38" rx="2" fill="#E4C8BA" />
-
-          <rect x="960" y="445" width="48" height="45" rx="4" fill="#E4C8BA" />
-          <rect x="1030" y="435" width="30" height="55" rx="2" fill="#D08878" />
-          <rect x="1085" y="448" width="35" height="42" rx="3" fill="#9C6B5E" />
-          <circle cx="1150" cy="465" r="14" fill="#DEC0B3" />
-
-          {/* Potted Floor Plant (Far Left) */}
-          <path d="M0,450 Q45,430 65,480 Q30,510 0,490 Z" fill="#886E65" />
-          <path d="M10,510 Q70,490 85,550 Q40,580 5,550 Z" fill="#7A6058" />
-          <rect x="0" y="690" width="55" height="70" rx="3" fill="#B27464" />
-
-          {/* Main Service Bar Counter */}
-          <rect x="230" y="550" width="700" height="18" fill="#8B6358" />
-          <rect x="250" y="568" width="660" height="180" fill="#4B3530" />
-          <rect x="930" y="590" width="510" height="16" fill="#8B6358" />
-          <rect x="930" y="606" width="510" height="142" fill="#583F39" />
-
-          {/* Espresso Machine Silhouette on Counter */}
-          <rect x="360" y="420" width="95" height="130" rx="4" fill="#75564E" stroke="#5E433C" strokeWidth="4" />
-          <rect x="380" y="510" width="55" height="20" fill="#A87568" />
-          <rect x="475" y="450" width="50" height="100" rx="3" fill="#684D46" />
-
-          {/* Foreground Bar Stools Lineup */}
-          <g>
-            {[780, 930, 1070, 1210, 1350].map((x, i) => (
-              <g key={i}>
-                <ellipse cx={x} cy={690} rx="34" ry="10" fill="#B36E5E" />
-                <ellipse cx={x} cy={687} rx="34" ry="10" fill="#C88272" />
-                <line x1={x - 18} y1={695} x2={x - 22} y2={870} stroke="#44302B" strokeWidth="5" />
-                <line x1={x + 18} y1={695} x2={x + 22} y2={870} stroke="#44302B" strokeWidth="5" />
-                <line x1={x} y1={697} x2={x} y2={870} stroke="#44302B" strokeWidth="4" />
-                <ellipse cx={x} cy={790} rx="20" ry="5" stroke="#44302B" strokeWidth="3" fill="none" />
-              </g>
-            ))}
-          </g>
-
-          {/* Flooring Tiles */}
-          <rect y="748" width="1440" height="152" fill="#BAA093" />
-          <line x1="0" y1="748" x2="1440" y2="748" stroke="#8A6E63" strokeWidth="3" />
-          <line x1="200" y1="748" x2="60" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
-          <line x1="560" y1="748" x2="450" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
-          <line x1="920" y1="748" x2="840" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
-          <line x1="1280" y1="748" x2="1230" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
-        </svg>
+      {/* FULL-SCREEN CAFE IMAGE BACKGROUND */}
+      <div 
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
+        style={{ backgroundImage: `url('/cafe-bg.jpg')` }}
+      >
+        {/* Soft atmospheric overlay to ensure foreground contrast */}
+        <div className="absolute inset-0 bg-[#4A2E2E]/10 backdrop-blur-[1.5px]" />
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
@@ -218,9 +118,9 @@ export default function Home() {
       `}} />
 
       {/* CENTRAL CARD CONTAINER */}
-      <div className="w-full max-w-md bg-[#FAF5EE]/95 backdrop-blur-md border border-[#DFCFC4] rounded-[38px] p-6 sm:p-8 shadow-[0_24px_60px_rgba(74,48,36,0.22)] relative z-10 flex flex-col items-center">
+      <div className="w-full max-w-md bg-[#FAF5EE]/95 backdrop-blur-md border border-[#DFCFC4] rounded-[38px] p-6 sm:p-8 shadow-[0_24px_60px_rgba(74,48,36,0.24)] relative z-10 flex flex-col items-center">
         
-        {/* Corner Accents */}
+        {/* Corner Rivets */}
         <div className="absolute top-4 left-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
         <div className="absolute top-4 right-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
         <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
@@ -228,7 +128,6 @@ export default function Home() {
 
         {/* HEADER SECTION */}
         <header className="text-center space-y-1.5 mb-5 w-full">
-          
           <div className="inline-flex items-center space-x-2 px-3.5 py-0.5 bg-[#EFE2D8] border border-[#D8C4B8] rounded-full shadow-sm select-none">
             <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
             <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-[#865750] font-bold">
@@ -237,7 +136,6 @@ export default function Home() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
           </div>
 
-          {/* UNIFIED MATCHING TITLE DESIGN (Both words in italic editorial serif) */}
           <div className="pt-1">
             <h1 className="text-3xl sm:text-[35px] font-serif italic font-medium tracking-tight text-[#7D4646] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
               Indecisive Caffeinist
@@ -248,7 +146,7 @@ export default function Home() {
           </div>
         </header>
 
-        {/* DISPLAY WINDOW: Formatted to 2x3 ratio (360px by 540px) */}
+        {/* DISPLAY WINDOW (360px x 540px) */}
         <div className="w-[360px] h-[540px] flex flex-col items-center justify-center relative bg-gradient-to-b from-[#FCFAF7] to-[#F7F3EC] border border-[#EAE2D5] rounded-2xl p-6 overflow-hidden shadow-[0_16px_40px_rgba(45,30,18,0.06),inset_0_1px_2px_rgba(255,255,255,0.8)] transition-all duration-300">
           
           {/* EXTRACTION ANIMATION */}
@@ -311,15 +209,13 @@ export default function Home() {
               </div>
 
               <div className="space-y-3 pt-1.5 flex flex-col h-[82%]">
-                
-                {/* Header */}
                 <div className="text-center">
                   <h2 className="text-2xl font-serif font-black tracking-wider text-[#4A2E2E] uppercase drop-shadow-[0_1px_0_rgba(255,255,255,0.8)]">
                     Guest Check
                   </h2>
                 </div>
 
-                {/* Upper Metadata Table */}
+                {/* Metadata Table */}
                 <div className="grid grid-cols-5 border border-[#8B4F4F]/35 divide-x divide-[#8B4F4F]/35 text-[8px] text-[#8C6B6B] font-sans uppercase bg-white/50 shadow-inner rounded-sm overflow-hidden">
                   <div className="flex flex-col justify-between p-1 h-8">
                     <span>Date</span>
@@ -348,16 +244,11 @@ export default function Home() {
 
                 {/* Darker Clay-Rose Lined Notepad */}
                 <div className="relative flex-1 bg-[#E8D5D5] border border-[#8B4F4F]/30 rounded-md p-0.5 overflow-hidden select-none shadow-[inset_0_2px_4px_rgba(74,46,46,0.06)]">
-                  
-                  {/* Guidelines */}
                   <div className="absolute left-[12%] top-0 bottom-0 w-[1.5px] bg-red-400/40 z-10" />
                   <div className="absolute right-[22%] top-0 bottom-0 w-[1px] bg-[#8B4F4F]/25 z-10" />
                   <div className="absolute right-[6%] top-0 bottom-0 w-[1px] bg-[#8B4F4F]/25 z-10" />
 
-                  {/* Lined Rows */}
                   <div className="space-y-0 h-full relative z-20">
-                    
-                    {/* Line 1: Base */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center">
                       <span className="w-[12%] text-center text-[10px] text-[#8C6B6B] font-sans font-bold">1</span>
                       <span className="flex-1 pl-3 text-[16px] font-serif font-black text-[#3D1F1F] truncate leading-none drop-shadow-[0_1px_0_rgba(255,255,255,0.4)]">
@@ -366,7 +257,6 @@ export default function Home() {
                       <span className="w-[16%] text-center font-mono text-[11px] font-bold text-[#4A2E2E] mr-2">0.00</span>
                     </div>
 
-                    {/* Line 2: Milk */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center">
                       <span className="w-[12%] text-center text-[10px] text-[#8C6B6B] font-sans font-bold">2</span>
                       <span className="flex-1 pl-3 text-[14px] font-sans font-extrabold text-[#4A2E2E] truncate leading-none">
@@ -375,7 +265,6 @@ export default function Home() {
                       <span className="w-[16%] text-center font-mono text-[10px] text-[#8C6B6B] mr-2">INCL</span>
                     </div>
 
-                    {/* Line 3: Sweetener */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center">
                       <span className="w-[12%] text-center text-[10px] text-[#8C6B6B] font-sans font-bold">3</span>
                       <span className="flex-1 pl-3 text-[14px] font-sans font-extrabold text-[#4A2E2E] truncate leading-none">
@@ -386,7 +275,6 @@ export default function Home() {
                       </span>
                     </div>
 
-                    {/* Line 4: Cold Foam */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center">
                       <span className="w-[12%] text-center text-[10px] text-[#8C6B6B] font-sans font-bold">4</span>
                       <span className="flex-1 pl-3 text-[14px] font-sans font-extrabold text-[#4A2E2E] truncate leading-none">
@@ -397,7 +285,6 @@ export default function Home() {
                       </span>
                     </div>
 
-                    {/* Line 5: Topping */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center">
                       <span className="w-[12%] text-center text-[10px] text-[#8C6B6B] font-sans font-bold">5</span>
                       <span className="flex-1 pl-3 text-[14px] font-sans font-extrabold text-[#4A2E2E] truncate leading-none">
@@ -408,28 +295,23 @@ export default function Home() {
                       </span>
                     </div>
 
-                    {/* Line 6: Blank */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center">
                       <span className="w-[12%] text-center text-[10px] opacity-40 font-sans">6</span>
                       <span className="flex-1 pl-3" />
                       <span className="w-[16%] mr-2" />
                     </div>
 
-                    {/* Line 7: Tax */}
                     <div className="h-[29px] border-b border-[#8B4F4F]/20 flex items-center justify-end">
                       <span className="font-sans text-[9px] font-bold text-[#8C6B6B] mr-4 uppercase tracking-wide">Tax</span>
                       <span className="w-[16%] text-center font-mono text-[10px] text-[#8C6B6B] mr-2">0.00</span>
                     </div>
 
-                    {/* Line 8: Total */}
                     <div className="h-[29px] flex items-center justify-end">
                       <span className="font-serif text-[12px] font-black text-[#3D1F1F] mr-4 uppercase tracking-wide">Total</span>
                       <span className="w-[16%] text-center font-mono text-[13px] font-black text-[#3D1F1F] mr-2">0.00</span>
                     </div>
-
                   </div>
                 </div>
-
               </div>
 
               {/* Perforation line */}
@@ -464,7 +346,6 @@ export default function Home() {
                   <div className="bg-[#EAD0D0]/30" />
                 </div>
               </div>
-
             </div>
           )}
 
@@ -480,7 +361,7 @@ export default function Home() {
           )}
         </div>
 
-        {/* ACTION CONTROLS */}
+        {/* CONTROLS */}
         <footer className="w-full text-center space-y-3 pt-4">
           <button
             onClick={generateCoffee}
