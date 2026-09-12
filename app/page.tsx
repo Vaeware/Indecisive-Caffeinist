@@ -61,18 +61,13 @@ export default function Home() {
       if (currentProgress >= 100) {
         clearInterval(interval);
         
-        // 1. Base selection
         const selectedBase = getRandomItem(bases);
-        
-        // 2. Cold Brew is strictly Iced
         const selectedTemp = selectedBase.toLowerCase().includes('cold brew') 
           ? 'Iced' 
           : getRandomItem(temps);
 
         const selectedMilk = getRandomItem(milks);
         const selectedSyrup = getRandomItem(syrups);
-        
-        // 3. Cold foam is strictly for iced drinks
         const selectedColdFoam = selectedTemp === 'Iced' ? getRandomItem(coldFoams) : 'No Cold Foam';
         const selectedTopping = getRandomItem(toppings);
 
@@ -90,14 +85,95 @@ export default function Home() {
   };
 
   return (
-    <div 
-      className="w-full min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] relative"
-      style={{
-        backgroundColor: '#F3ECE2',
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath d='M0 0h80v40H0z' fill='none'/%3E%3Cpath d='M0 0h80M0 20h80M0 40h80M0 0v20M80 0v20M40 20v20' stroke='%23E2D6C5' stroke-width='1.2'/%3E%3C/svg%3E")`
-      }}
-    >
+    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden bg-[#F6F0E8]">
       
+      {/* SOFT PINK & TAN CAFE ILLUSTRATION BACKGROUND (Low saturation, atmospheric) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-55">
+        <svg 
+          viewBox="0 0 1440 900" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="w-full h-full object-cover"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          {/* Base Wall & Ceiling Tones */}
+          <rect width="1440" height="900" fill="#F4EDE4" />
+          <rect width="1440" height="110" fill="#E6DAD2" />
+          <rect y="110" width="1440" height="16" fill="#D8C8BF" />
+
+          {/* Large Cafe Window on Left */}
+          <rect x="70" y="160" width="620" height="520" rx="6" fill="#EDE1D6" stroke="#D3C0B5" strokeWidth="6" />
+          {/* Window Panes Grid */}
+          <line x1="70" y1="330" x2="690" y2="330" stroke="#D3C0B5" strokeWidth="4" />
+          <line x1="280" y1="160" x2="280" y2="680" stroke="#D3C0B5" strokeWidth="4" />
+          <line x1="490" y1="160" x2="490" y2="680" stroke="#D3C0B5" strokeWidth="4" />
+          
+          {/* Soft City Silhouette behind Window */}
+          <rect x="110" y="440" width="65" height="180" fill="#DFD2C7" opacity="0.6" />
+          <rect x="190" y="380" width="80" height="240" fill="#DFD2C7" opacity="0.5" />
+          <rect x="300" y="410" width="95" height="210" fill="#DFD2C7" opacity="0.7" />
+          <rect x="420" y="360" width="60" height="260" fill="#DFD2C7" opacity="0.5" />
+          <rect x="500" y="430" width="110" height="190" fill="#DFD2C7" opacity="0.6" />
+
+          {/* Warm Sunlight Angle Beam */}
+          <polygon points="70,160 520,160 880,900 180,900" fill="#FFF9F2" opacity="0.4" />
+
+          {/* Hanging Pendant Lamps */}
+          <line x1="220" y1="110" x2="220" y2="230" stroke="#B8A499" strokeWidth="2" />
+          <rect x="213" y="230" width="14" height="28" rx="4" fill="#C99388" opacity="0.85" />
+          <line x1="440" y1="110" x2="440" y2="210" stroke="#B8A499" strokeWidth="2" />
+          <rect x="433" y="210" width="14" height="28" rx="4" fill="#C99388" opacity="0.85" />
+
+          {/* Right Side Wall Art / Menu Chalkboard */}
+          <rect x="1220" y="180" width="160" height="340" rx="4" fill="#6A514D" opacity="0.75" />
+          <rect x="1232" y="195" width="136" height="310" fill="#584340" opacity="0.8" />
+          <path d="M1250,230 Q1300,210 1350,230" stroke="#DFD2C7" strokeWidth="2" fill="none" opacity="0.6" />
+          <line x1="1255" y1="260" x2="1345" y2="260" stroke="#DFD2C7" strokeWidth="1.5" opacity="0.5" />
+          <line x1="1255" y1="285" x2="1330" y2="285" stroke="#DFD2C7" strokeWidth="1.5" opacity="0.5" />
+          <line x1="1255" y1="310" x2="1340" y2="310" stroke="#DFD2C7" strokeWidth="1.5" opacity="0.5" />
+
+          {/* Cafe Shelves on Right */}
+          <rect x="880" y="240" width="310" height="12" rx="2" fill="#BAA498" />
+          <rect x="880" y="340" width="310" height="12" rx="2" fill="#BAA498" />
+          <rect x="880" y="440" width="310" height="12" rx="2" fill="#BAA498" />
+
+          {/* Mugs, Jars, and Canisters on Shelves (Soft Pink & Tan Tones) */}
+          <rect x="910" y="190" width="26" height="50" rx="3" fill="#D99B8F" opacity="0.8" />
+          <rect x="945" y="205" width="32" height="35" rx="3" fill="#D6C4B8" />
+          <rect x="990" y="198" width="38" height="42" rx="16" fill="#C5A898" />
+          <rect x="1050" y="208" width="22" height="32" rx="2" fill="#D99B8F" opacity="0.8" />
+
+          <rect x="905" y="300" width="24" height="40" rx="2" fill="#CBB6AA" />
+          <rect x="940" y="305" width="28" height="35" rx="2" fill="#D99B8F" opacity="0.8" />
+          <rect x="1020" y="295" width="48" height="45" rx="4" fill="#BA9E92" />
+          <circle cx="1120" cy="318" r="14" fill="#C99388" opacity="0.85" />
+
+          {/* Main Wooden Espresso Bar Counter */}
+          <rect x="0" y="580" width="1440" height="18" fill="#B3988B" />
+          <rect x="0" y="598" width="1440" height="240" fill="#6A534B" opacity="0.35" />
+
+          {/* Bar Stools Lineup */}
+          <g opacity="0.75">
+            {[260, 420, 580, 860, 1020, 1180].map((x, i) => (
+              <g key={i}>
+                <ellipse cx={x} cy={660} rx="30" ry="8" fill="#C2897E" />
+                <line x1={x - 16} y1={664} x2={x - 20} y2={840} stroke="#7D655C" strokeWidth="4" />
+                <line x1={x + 16} y1={664} x2={x + 20} y2={840} stroke="#7D655C" strokeWidth="4" />
+                <line x1={x} y1={664} x2={x} y2={840} stroke="#7D655C" strokeWidth="3" />
+                <ellipse cx={x} cy={760} rx="18" ry="4" stroke="#7D655C" strokeWidth="2.5" fill="none" />
+              </g>
+            ))}
+          </g>
+
+          {/* Floor Tiles Perspective */}
+          <line x1="0" y1="840" x2="1440" y2="840" stroke="#D3C0B5" strokeWidth="2" />
+          <line x1="200" y1="840" x2="80" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
+          <line x1="500" y1="840" x2="420" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
+          <line x1="850" y1="840" x2="820" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
+          <line x1="1200" y1="840" x2="1240" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
+        </svg>
+      </div>
+
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes jetStream {
           0%, 100% { stroke-width: 3px; transform: scaleX(0.95); stroke: #70482B; }
@@ -118,32 +194,36 @@ export default function Home() {
         }
       `}} />
 
-      {/* COFFEE SHOP STATION BORDER (Single monochromatic tone: #D6C7B2) */}
-      <div className="w-full max-w-md bg-[#FBF8F3]/90 backdrop-blur-[2px] border-2 border-[#D6C7B2] rounded-[36px] p-6 sm:p-8 shadow-[0_20px_50px_rgba(74,56,40,0.1)] relative flex flex-col items-center">
+      {/* CENTRAL INTERACTIVE CARD CONTAINER */}
+      <div className="w-full max-w-md bg-[#FAF5EE]/95 backdrop-blur-md border border-[#E3D4C7] rounded-[38px] p-6 sm:p-8 shadow-[0_24px_60px_rgba(74,48,36,0.14)] relative z-10 flex flex-col items-center">
         
-        {/* Cafe Awning Top Trim Motif */}
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center space-x-1 px-4 py-0.5 bg-[#F3ECE2] border border-[#D6C7B2] rounded-full shadow-sm select-none">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#D6C7B2]" />
-          <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#917E6B] font-bold">
-            Espresso Bar Station
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#D6C7B2]" />
-        </div>
-
         {/* Decorative Corner Rivets */}
-        <div className="absolute top-3 left-3 w-2 h-2 rounded-full border border-[#D6C7B2] bg-[#EFE6DA]" />
-        <div className="absolute top-3 right-3 w-2 h-2 rounded-full border border-[#D6C7B2] bg-[#EFE6DA]" />
-        <div className="absolute bottom-3 left-3 w-2 h-2 rounded-full border border-[#D6C7B2] bg-[#EFE6DA]" />
-        <div className="absolute bottom-3 right-3 w-2 h-2 rounded-full border border-[#D6C7B2] bg-[#EFE6DA]" />
+        <div className="absolute top-4 left-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
+        <div className="absolute top-4 right-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
+        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
+        <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
 
-        {/* Brand Header */}
-        <header className="text-center space-y-1.5 mb-5 mt-1">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#9E7A7A] bg-[#F2E8E8]/80 px-3 py-0.5 rounded-full border border-[#E8D8D8]">
-            Daily Curation
-          </span>
-          <h1 className="text-3xl font-serif font-black tracking-tight text-[#1A130E] drop-shadow-sm">
-            Indecisive Caffeinist
-          </h1>
+        {/* HEADER SECTION (Overlapping bug resolved: Clean vertical flow) */}
+        <header className="text-center space-y-2 mb-5 w-full">
+          
+          {/* Refined Station Tag Badge */}
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-[#F0E4DA] border border-[#DFCAC0] rounded-full shadow-sm select-none">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#A25F56]" />
+            <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-[#865750] font-bold">
+              Espresso Bar Station
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#A25F56]" />
+          </div>
+
+          {/* Redesigned Title with High-End Editorial Serif & Warm Rose-Mocha Color */}
+          <div className="pt-1">
+            <h1 className="text-3xl sm:text-[34px] font-serif font-black tracking-normal text-[#3A2424] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+              Indecisive <span className="italic font-medium text-[#7D4646]">Caffeinist</span>
+            </h1>
+            <p className="text-[10px] font-sans uppercase tracking-[0.26em] text-[#9A7A7A] mt-1 font-semibold">
+              Artisan Drink Curator
+            </p>
+          </div>
         </header>
 
         {/* DISPLAY WINDOW: Formatted to 2x3 ratio (360px by 540px) */}
