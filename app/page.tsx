@@ -142,7 +142,7 @@ export default function Home() {
               Indecisive Caffeinist
             </h1>
             <p className="text-[9px] font-sans uppercase tracking-[0.24em] text-[#9A7A7A] mt-0.5 font-bold">
-              Curated Daily Ritual
+              
             </p>
           </div>
         </header>
@@ -358,9 +358,9 @@ export default function Home() {
           {!isGenerating && !recipe && (
             <div className="space-y-4 text-center max-w-[220px] mx-auto py-12">
               <div className="text-2xl text-[#A68282]/40 font-serif">—</div>
-              <p className="text-base font-serif font-bold text-[#2D1E12]">Menu Paradox</p>
+              <p className="text-base font-serif font-bold text-[#2D1E12]">What should I drink today?</p>
               <p className="text-xs text-[#A68282] font-light leading-relaxed">
-                Click below to auto-curate a perfectly balanced daily caffeine composition.
+                Click below for a perfectly curated beverage when you're feeling indecisive.
               </p>
             </div>
           )}
