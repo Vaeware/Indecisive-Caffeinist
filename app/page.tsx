@@ -85,10 +85,10 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden bg-[#F6F0E8]">
+    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden bg-[#D8C7BC]">
       
-      {/* SOFT PINK & TAN CAFE ILLUSTRATION BACKGROUND (Low saturation, atmospheric) */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-55">
+      {/* COFFEE SHOP BACKGROUND ILLUSTRATION (Faithful to reference image) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <svg 
           viewBox="0 0 1440 900" 
           fill="none" 
@@ -96,81 +96,104 @@ export default function Home() {
           className="w-full h-full object-cover"
           preserveAspectRatio="xMidYMid slice"
         >
-          {/* Base Wall & Ceiling Tones */}
-          <rect width="1440" height="900" fill="#F4EDE4" />
-          <rect width="1440" height="110" fill="#E6DAD2" />
-          <rect y="110" width="1440" height="16" fill="#D8C8BF" />
+          {/* Main Cafe Walls & Ceiling */}
+          <rect width="1440" height="900" fill="#DECBC2" />
+          <rect width="1440" height="100" fill="#93756C" />
+          <rect y="100" width="1440" height="24" fill="#755850" />
 
-          {/* Large Cafe Window on Left */}
-          <rect x="70" y="160" width="620" height="520" rx="6" fill="#EDE1D6" stroke="#D3C0B5" strokeWidth="6" />
-          {/* Window Panes Grid */}
-          <line x1="70" y1="330" x2="690" y2="330" stroke="#D3C0B5" strokeWidth="4" />
-          <line x1="280" y1="160" x2="280" y2="680" stroke="#D3C0B5" strokeWidth="4" />
-          <line x1="490" y1="160" x2="490" y2="680" stroke="#D3C0B5" strokeWidth="4" />
+          {/* Large Panoramic Cafe Window */}
+          <rect x="60" y="140" width="840" height="520" rx="4" fill="#EAD9CE" stroke="#684D46" strokeWidth="12" />
           
-          {/* Soft City Silhouette behind Window */}
-          <rect x="110" y="440" width="65" height="180" fill="#DFD2C7" opacity="0.6" />
-          <rect x="190" y="380" width="80" height="240" fill="#DFD2C7" opacity="0.5" />
-          <rect x="300" y="410" width="95" height="210" fill="#DFD2C7" opacity="0.7" />
-          <rect x="420" y="360" width="60" height="260" fill="#DFD2C7" opacity="0.5" />
-          <rect x="500" y="430" width="110" height="190" fill="#DFD2C7" opacity="0.6" />
+          {/* Window Panes and Frame Bars */}
+          <line x1="60" y1="230" x2="900" y2="230" stroke="#684D46" strokeWidth="8" />
+          <line x1="310" y1="140" x2="310" y2="660" stroke="#684D46" strokeWidth="8" />
+          <line x1="680" y1="140" x2="680" y2="660" stroke="#684D46" strokeWidth="8" />
 
-          {/* Warm Sunlight Angle Beam */}
-          <polygon points="70,160 520,160 880,900 180,900" fill="#FFF9F2" opacity="0.4" />
+          {/* Warm Cityscape Skyline View Through Window */}
+          <rect x="90" y="320" width="70" height="340" fill="#D3B8AA" />
+          <rect x="180" y="270" width="95" height="390" fill="#CBB0A2" />
+          <rect x="340" y="340" width="110" height="320" fill="#D3B8AA" />
+          <rect x="470" y="290" width="75" height="370" fill="#C4A89A" />
+          <rect x="560" y="360" width="90" height="300" fill="#CEB4A6" />
+          <rect x="710" y="310" width="130" height="350" fill="#CBB0A2" />
 
-          {/* Hanging Pendant Lamps */}
-          <line x1="220" y1="110" x2="220" y2="230" stroke="#B8A499" strokeWidth="2" />
-          <rect x="213" y="230" width="14" height="28" rx="4" fill="#C99388" opacity="0.85" />
-          <line x1="440" y1="110" x2="440" y2="210" stroke="#B8A499" strokeWidth="2" />
-          <rect x="433" y="210" width="14" height="28" rx="4" fill="#C99388" opacity="0.85" />
+          {/* Warm Sunlight Angle from Window */}
+          <polygon points="60,140 680,140 1020,900 120,900" fill="#FDF3EB" opacity="0.25" />
 
-          {/* Right Side Wall Art / Menu Chalkboard */}
-          <rect x="1220" y="180" width="160" height="340" rx="4" fill="#6A514D" opacity="0.75" />
-          <rect x="1232" y="195" width="136" height="310" fill="#584340" opacity="0.8" />
-          <path d="M1250,230 Q1300,210 1350,230" stroke="#DFD2C7" strokeWidth="2" fill="none" opacity="0.6" />
-          <line x1="1255" y1="260" x2="1345" y2="260" stroke="#DFD2C7" strokeWidth="1.5" opacity="0.5" />
-          <line x1="1255" y1="285" x2="1330" y2="285" stroke="#DFD2C7" strokeWidth="1.5" opacity="0.5" />
-          <line x1="1255" y1="310" x2="1340" y2="310" stroke="#DFD2C7" strokeWidth="1.5" opacity="0.5" />
+          {/* Hanging Pendant Fixtures */}
+          <line x1="280" y1="124" x2="280" y2="210" stroke="#523B35" strokeWidth="2.5" />
+          <rect x="272" y="210" width="16" height="36" rx="4" fill="#C27A67" />
+          <line x1="510" y1="124" x2="510" y2="230" stroke="#523B35" strokeWidth="2.5" />
+          <rect x="502" y="230" width="16" height="36" rx="4" fill="#C27A67" />
 
-          {/* Cafe Shelves on Right */}
-          <rect x="880" y="240" width="310" height="12" rx="2" fill="#BAA498" />
-          <rect x="880" y="340" width="310" height="12" rx="2" fill="#BAA498" />
-          <rect x="880" y="440" width="310" height="12" rx="2" fill="#BAA498" />
+          {/* Right Wall Artwork Poster Frame */}
+          <rect x="1270" y="150" width="135" height="390" rx="3" fill="#FAF5F0" stroke="#5E433C" strokeWidth="8" />
+          <rect x="1285" y="165" width="105" height="360" fill="#785952" />
+          <path d="M1300,320 Q1337,250 1375,320" stroke="#F1DFD5" strokeWidth="3" fill="none" opacity="0.7" />
+          <circle cx="1337" cy="240" r="18" fill="#D49A8D" opacity="0.8" />
+          <line x1="1300" y1="360" x2="1375" y2="360" stroke="#F1DFD5" strokeWidth="2" opacity="0.6" />
+          <line x1="1310" y1="380" x2="1365" y2="380" stroke="#F1DFD5" strokeWidth="2" opacity="0.6" />
 
-          {/* Mugs, Jars, and Canisters on Shelves (Soft Pink & Tan Tones) */}
-          <rect x="910" y="190" width="26" height="50" rx="3" fill="#D99B8F" opacity="0.8" />
-          <rect x="945" y="205" width="32" height="35" rx="3" fill="#D6C4B8" />
-          <rect x="990" y="198" width="38" height="42" rx="16" fill="#C5A898" />
-          <rect x="1050" y="208" width="22" height="32" rx="2" fill="#D99B8F" opacity="0.8" />
+          {/* Three Open Cafe Shelves */}
+          <rect x="940" y="290" width="310" height="14" rx="2" fill="#75564E" />
+          <rect x="940" y="390" width="310" height="14" rx="2" fill="#75564E" />
+          <rect x="940" y="490" width="310" height="14" rx="2" fill="#75564E" />
 
-          <rect x="905" y="300" width="24" height="40" rx="2" fill="#CBB6AA" />
-          <rect x="940" y="305" width="28" height="35" rx="2" fill="#D99B8F" opacity="0.8" />
-          <rect x="1020" y="295" width="48" height="45" rx="4" fill="#BA9E92" />
-          <circle cx="1120" cy="318" r="14" fill="#C99388" opacity="0.85" />
+          {/* Ceramic Bottles, Jars, and Cups (Muted Terracottas & Pinks) */}
+          <rect x="965" y="235" width="28" height="55" rx="3" fill="#D08878" />
+          <rect x="1005" y="250" width="34" height="40" rx="3" fill="#E4C8BA" />
+          <path d="M1060,250 h26 v30 a8,8 0 0 1 -8,8 h-10 a8,8 0 0 1 -8,-8 z" fill="#BE7D6F" />
+          <rect x="1115" y="230" width="32" height="60" rx="4" fill="#B38676" />
+          <rect x="1170" y="248" width="26" height="42" rx="2" fill="#DFA99C" />
 
-          {/* Main Wooden Espresso Bar Counter */}
-          <rect x="0" y="580" width="1440" height="18" fill="#B3988B" />
-          <rect x="0" y="598" width="1440" height="240" fill="#6A534B" opacity="0.35" />
+          <rect x="970" y="348" width="24" height="42" rx="2" fill="#A87568" />
+          <rect x="1010" y="338" width="36" height="52" rx="3" fill="#D08878" />
+          <circle cx="1080" cy="365" r="16" fill="#DEC0B3" />
+          <rect x="1120" y="345" width="40" height="45" rx="3" fill="#BE7D6F" />
+          <rect x="1185" y="352" width="22" height="38" rx="2" fill="#E4C8BA" />
 
-          {/* Bar Stools Lineup */}
-          <g opacity="0.75">
-            {[260, 420, 580, 860, 1020, 1180].map((x, i) => (
+          <rect x="960" y="445" width="48" height="45" rx="4" fill="#E4C8BA" />
+          <rect x="1030" y="435" width="30" height="55" rx="2" fill="#D08878" />
+          <rect x="1085" y="448" width="35" height="42" rx="3" fill="#9C6B5E" />
+          <circle cx="1150" cy="465" r="14" fill="#DEC0B3" />
+
+          {/* Potted Floor Plant (Far Left) */}
+          <path d="M0,450 Q45,430 65,480 Q30,510 0,490 Z" fill="#886E65" />
+          <path d="M10,510 Q70,490 85,550 Q40,580 5,550 Z" fill="#7A6058" />
+          <rect x="0" y="690" width="55" height="70" rx="3" fill="#B27464" />
+
+          {/* Main Service Bar Counter */}
+          <rect x="230" y="550" width="700" height="18" fill="#8B6358" />
+          <rect x="250" y="568" width="660" height="180" fill="#4B3530" />
+          <rect x="930" y="590" width="510" height="16" fill="#8B6358" />
+          <rect x="930" y="606" width="510" height="142" fill="#583F39" />
+
+          {/* Espresso Machine Silhouette on Counter */}
+          <rect x="360" y="420" width="95" height="130" rx="4" fill="#75564E" stroke="#5E433C" strokeWidth="4" />
+          <rect x="380" y="510" width="55" height="20" fill="#A87568" />
+          <rect x="475" y="450" width="50" height="100" rx="3" fill="#684D46" />
+
+          {/* Foreground Bar Stools Lineup */}
+          <g>
+            {[780, 930, 1070, 1210, 1350].map((x, i) => (
               <g key={i}>
-                <ellipse cx={x} cy={660} rx="30" ry="8" fill="#C2897E" />
-                <line x1={x - 16} y1={664} x2={x - 20} y2={840} stroke="#7D655C" strokeWidth="4" />
-                <line x1={x + 16} y1={664} x2={x + 20} y2={840} stroke="#7D655C" strokeWidth="4" />
-                <line x1={x} y1={664} x2={x} y2={840} stroke="#7D655C" strokeWidth="3" />
-                <ellipse cx={x} cy={760} rx="18" ry="4" stroke="#7D655C" strokeWidth="2.5" fill="none" />
+                <ellipse cx={x} cy={690} rx="34" ry="10" fill="#B36E5E" />
+                <ellipse cx={x} cy={687} rx="34" ry="10" fill="#C88272" />
+                <line x1={x - 18} y1={695} x2={x - 22} y2={870} stroke="#44302B" strokeWidth="5" />
+                <line x1={x + 18} y1={695} x2={x + 22} y2={870} stroke="#44302B" strokeWidth="5" />
+                <line x1={x} y1={697} x2={x} y2={870} stroke="#44302B" strokeWidth="4" />
+                <ellipse cx={x} cy={790} rx="20" ry="5" stroke="#44302B" strokeWidth="3" fill="none" />
               </g>
             ))}
           </g>
 
-          {/* Floor Tiles Perspective */}
-          <line x1="0" y1="840" x2="1440" y2="840" stroke="#D3C0B5" strokeWidth="2" />
-          <line x1="200" y1="840" x2="80" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
-          <line x1="500" y1="840" x2="420" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
-          <line x1="850" y1="840" x2="820" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
-          <line x1="1200" y1="840" x2="1240" y2="900" stroke="#D3C0B5" strokeWidth="2" opacity="0.6" />
+          {/* Flooring Tiles */}
+          <rect y="748" width="1440" height="152" fill="#BAA093" />
+          <line x1="0" y1="748" x2="1440" y2="748" stroke="#8A6E63" strokeWidth="3" />
+          <line x1="200" y1="748" x2="60" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
+          <line x1="560" y1="748" x2="450" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
+          <line x1="920" y1="748" x2="840" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
+          <line x1="1280" y1="748" x2="1230" y2="900" stroke="#8A6E63" strokeWidth="2.5" opacity="0.6" />
         </svg>
       </div>
 
@@ -194,34 +217,33 @@ export default function Home() {
         }
       `}} />
 
-      {/* CENTRAL INTERACTIVE CARD CONTAINER */}
-      <div className="w-full max-w-md bg-[#FAF5EE]/95 backdrop-blur-md border border-[#E3D4C7] rounded-[38px] p-6 sm:p-8 shadow-[0_24px_60px_rgba(74,48,36,0.14)] relative z-10 flex flex-col items-center">
+      {/* CENTRAL CARD CONTAINER */}
+      <div className="w-full max-w-md bg-[#FAF5EE]/95 backdrop-blur-md border border-[#DFCFC4] rounded-[38px] p-6 sm:p-8 shadow-[0_24px_60px_rgba(74,48,36,0.22)] relative z-10 flex flex-col items-center">
         
-        {/* Decorative Corner Rivets */}
-        <div className="absolute top-4 left-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
-        <div className="absolute top-4 right-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
-        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
-        <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full border border-[#D1BCAC] bg-[#F4EDE4]" />
+        {/* Corner Accents */}
+        <div className="absolute top-4 left-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        <div className="absolute top-4 right-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
 
-        {/* HEADER SECTION (Overlapping bug resolved: Clean vertical flow) */}
-        <header className="text-center space-y-2 mb-5 w-full">
+        {/* HEADER SECTION */}
+        <header className="text-center space-y-1.5 mb-5 w-full">
           
-          {/* Refined Station Tag Badge */}
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-[#F0E4DA] border border-[#DFCAC0] rounded-full shadow-sm select-none">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#A25F56]" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-0.5 bg-[#EFE2D8] border border-[#D8C4B8] rounded-full shadow-sm select-none">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
             <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-[#865750] font-bold">
               Espresso Bar Station
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#A25F56]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
           </div>
 
-          {/* Redesigned Title with High-End Editorial Serif & Warm Rose-Mocha Color */}
+          {/* UNIFIED MATCHING TITLE DESIGN (Both words in italic editorial serif) */}
           <div className="pt-1">
-            <h1 className="text-3xl sm:text-[34px] font-serif font-black tracking-normal text-[#3A2424] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
-              Indecisive <span className="italic font-medium text-[#7D4646]">Caffeinist</span>
+            <h1 className="text-3xl sm:text-[35px] font-serif italic font-medium tracking-tight text-[#7D4646] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+              Indecisive Caffeinist
             </h1>
-            <p className="text-[10px] font-sans uppercase tracking-[0.26em] text-[#9A7A7A] mt-1 font-semibold">
-              Artisan Drink Curator
+            <p className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#9A7A7A] mt-1 font-bold">
+              Curated Daily Ritual
             </p>
           </div>
         </header>
