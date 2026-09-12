@@ -86,15 +86,16 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-4 sm:p-8 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden">
+    <div className="w-full min-h-screen relative flex flex-col items-center justify-center p-3 sm:p-6 text-[#241C15] font-sans selection:bg-[#F2E3E3] overflow-x-hidden">
       
-      {/* FULL-SCREEN CAFE IMAGE BACKGROUND */}
-      <div 
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
-        style={{ backgroundImage: `url('/cafe-bg.jpg')` }}
-      >
-        {/* Soft atmospheric overlay to ensure foreground contrast */}
-        <div className="absolute inset-0 bg-[#4A2E2E]/10 backdrop-blur-[1.5px]" />
+      {/* Full-screen cafe background with soft whitewash */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#FDFBF7]">
+        <img 
+          src="/cafe-bg.jpg" 
+          alt="Cafe Background" 
+          className="w-full h-full object-cover object-center opacity-25"
+        />
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
@@ -117,60 +118,64 @@ export default function Home() {
         }
       `}} />
 
-      {/* CENTRAL CARD CONTAINER */}
-      <div className="w-full max-w-md bg-[#FAF5EE]/95 backdrop-blur-md border border-[#DFCFC4] rounded-[38px] p-6 sm:p-8 shadow-[0_24px_60px_rgba(74,48,36,0.24)] relative z-10 flex flex-col items-center">
+      {/* FRAME CONTAINER: Buffer framing the UI station */}
+      <div className="w-full max-w-[420px] sm:max-w-[428px] bg-[#FAF5EE]/90 backdrop-blur-md border border-[#DFCFC4] rounded-[32px] p-5 sm:p-7 shadow-[0_20px_50px_rgba(74,48,36,0.28)] relative z-10 flex flex-col items-center my-auto">
         
-        {/* Corner Rivets */}
-        <div className="absolute top-4 left-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
-        <div className="absolute top-4 right-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
-        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
-        <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        {/* Subtle corner rivets */}
+        <div className="absolute top-3.5 left-3.5 w-1.5 h-1.5 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        <div className="absolute top-3.5 right-3.5 w-1.5 h-1.5 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        <div className="absolute bottom-3.5 left-3.5 w-1.5 h-1.5 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
+        <div className="absolute bottom-3.5 right-3.5 w-1.5 h-1.5 rounded-full border border-[#CBB8AB] bg-[#F4EDE4]" />
 
-        {/* HEADER SECTION */}
-        <header className="text-center space-y-1.5 mb-5 w-full">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-0.5 bg-[#EFE2D8] border border-[#D8C4B8] rounded-full shadow-sm select-none">
+        {/* Header */}
+        <header className="text-center space-y-1 mb-3.5 w-full">
+          <div className="inline-flex items-center space-x-1.5 px-3 py-0.5 bg-[#EFE2D8] border border-[#D8C4B8] rounded-full shadow-sm select-none">
             <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
-            <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-[#865750] font-bold">
+            <span className="text-[9px] font-mono uppercase tracking-[0.22em] text-[#865750] font-bold">
               Espresso Bar Station
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
           </div>
 
-          <div className="pt-1">
-            <h1 className="text-3xl sm:text-[35px] font-serif italic font-medium tracking-tight text-[#7D4646] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+          <div>
+            <h1 className="text-2xl sm:text-[28px] font-serif italic font-medium tracking-tight text-[#7D4646] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
               Indecisive Caffeinist
             </h1>
-            <p className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#9A7A7A] mt-1 font-bold">
+            <p className="text-[9px] font-sans uppercase tracking-[0.24em] text-[#9A7A7A] mt-0.5 font-bold">
               Curated Daily Ritual
             </p>
           </div>
         </header>
 
         {/* DISPLAY WINDOW (360px x 540px) */}
-        <div className="w-[360px] h-[540px] flex flex-col items-center justify-center relative bg-gradient-to-b from-[#FCFAF7] to-[#F7F3EC] border border-[#EAE2D5] rounded-2xl p-6 overflow-hidden shadow-[0_16px_40px_rgba(45,30,18,0.06),inset_0_1px_2px_rgba(255,255,255,0.8)] transition-all duration-300">
+        <div className="w-[360px] h-[540px] flex flex-col items-center justify-center relative bg-gradient-to-b from-[#FCFAF7] to-[#F7F3EC] border border-[#EAE2D5] rounded-2xl p-5 overflow-hidden shadow-[0_12px_30px_rgba(45,30,18,0.06),inset_0_1px_2px_rgba(255,255,255,0.8)] transition-all duration-300">
           
           {/* EXTRACTION ANIMATION */}
           {isGenerating && (
             <div className="flex flex-col items-center justify-center h-full w-full relative select-none">
               <svg width="240" height="240" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible filter drop-shadow-[0_8px_16px_rgba(45,30,18,0.08)]">
-                <path d="M90,85 Q85,75 92,65 T88,45" stroke="#C4B2A2" strokeWidth="1.5" strokeLinecap="round" fill="none" className="steam-path" style={{ animationDelay: '0s' }} />
-                <path d="M102,85 Q106,73 98,63 T104,45" stroke="#C4B2A2" strokeWidth="1.5" strokeLinecap="round" fill="none" className="steam-path" style={{ animationDelay: '0.5s' }} />
-                <path d="M112,85 Q108,76 114,66 T110,48" stroke="#C4B2A2" strokeWidth="1.5" strokeLinecap="round" fill="none" className="steam-path" style={{ animationDelay: '0.2s' }} />
+                <path d="M90,85 Q85,75 92,65 T88,45" stroke="#D8BEBE" strokeWidth="1.5" strokeLinecap="round" fill="none" className="steam-path" style={{ animationDelay: '0s' }} />
+                <path d="M102,85 Q106,73 98,63 T104,45" stroke="#D8BEBE" strokeWidth="1.5" strokeLinecap="round" fill="none" className="steam-path" style={{ animationDelay: '0.5s' }} />
+                <path d="M112,85 Q108,76 114,66 T110,48" stroke="#D8BEBE" strokeWidth="1.5" strokeLinecap="round" fill="none" className="steam-path" style={{ animationDelay: '0.2s' }} />
 
-                <rect x="50" y="20" width="100" height="12" rx="3" fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="1" />
-                <rect x="64" y="32" width="72" height="14" fill="#94A3B8" />
-                <rect x="76" y="46" width="48" height="8" rx="2" fill="#475569" />
+                {/* Machine group head mount */}
+                <rect x="50" y="20" width="100" height="12" rx="3" fill="#F4E8E8" stroke="#DFCDCD" strokeWidth="1" />
+                <rect x="64" y="32" width="72" height="14" rx="1" fill="#D9B7B7" stroke="#C79F9F" strokeWidth="1" />
+                <rect x="76" y="46" width="48" height="8" rx="2" fill="#8C5858" />
                 
-                <path d="M124,36 L175,32 C178,32 180,34 180,36 L178,42 C178,44 175,46 172,46 L124,42 Z" fill="#5C3D24" stroke="#4A301C" strokeWidth="1" />
-                <rect x="97" y="54" width="6" height="4" rx="1" fill="#1A130E" />
+                {/* Portafilter handle with rose accent ferrule */}
+                <path d="M124,36 L175,32 C178,32 180,34 180,36 L178,42 C178,44 175,46 172,46 L124,42 Z" fill="#4A2E2E" stroke="#381F1F" strokeWidth="1" />
+                <rect x="124" y="36" width="6" height="6" fill="#D9B7B7" rx="0.5" />
+                <rect x="97" y="54" width="6" height="4" rx="1" fill="#4A2E2E" />
 
                 <line x1="100" y1="58" x2="100" y2="135" stroke="#70482B" strokeWidth="4" strokeLinecap="round" className="stream-line" />
 
-                <path d="M75,100 L79,138 C80,146 87,152 95,152 H105 C113,152 120,146 121,138 L125,100 Z" fill="rgba(255,255,255,0.35)" stroke="#94A3B8" strokeWidth="2.5" />
-                <path d="M123,110 C133,110 137,118 137,124 C137,130 132,136 122,136" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                {/* Glass cup with soft pink tint and rose rim */}
+                <path d="M75,100 L79,138 C80,146 87,152 95,152 H105 C113,152 120,146 121,138 L125,100 Z" fill="rgba(255, 238, 238, 0.45)" stroke="#C8A5A5" strokeWidth="2.5" />
+                <path d="M123,110 C133,110 137,118 137,124 C137,130 132,136 122,136" stroke="#C8A5A5" strokeWidth="2.5" strokeLinecap="round" fill="none" />
 
                 <g clipPath="url(#cupClip)">
-                  <rect x="60" y={152 - (brewProgress * 0.52)} width="80" height="60" fill="#362213" />
+                  <rect x="60" y={152 - (brewProgress * 0.52)} width="80" height="60" fill="#3D2218" />
                   <rect x="60" y={152 - (brewProgress * 0.52)} width="80" height="6" fill="url(#cremaGradient)" />
                 </g>
 
@@ -184,7 +189,7 @@ export default function Home() {
                     <stop offset="100%" stopColor="#C6925B" />
                   </linearGradient>
                 </defs>
-                <line x1="45" y1="158" x2="155" y2="158" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round" opacity="0.8" />
+                <line x1="45" y1="158" x2="155" y2="158" stroke="#E2CDCD" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
               </svg>
 
               <div className="text-center mt-2 space-y-1">
@@ -362,11 +367,11 @@ export default function Home() {
         </div>
 
         {/* CONTROLS */}
-        <footer className="w-full text-center space-y-3 pt-4">
+        <footer className="w-full text-center space-y-2 pt-3.5 sm:pt-4">
           <button
             onClick={generateCoffee}
             disabled={isGenerating}
-            className="w-full max-w-[240px] mx-auto bg-[#4A2E2E] hover:bg-[#5C3A3A] active:bg-[#3D2828] text-[#FDFBF7] font-bold py-4 px-8 rounded-2xl text-xs uppercase tracking-[0.2em] transition-all duration-200 disabled:opacity-40 shadow-[0_10px_25px_-4px_rgba(74,46,46,0.25),0_4px_10px_-2px_rgba(74,46,46,0.15)] hover:shadow-[0_14px_30px_-4px_rgba(74,46,46,0.32)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_4px_12px_rgba(74,46,46,0.2)] block"
+            className="w-full max-w-[220px] mx-auto bg-[#4A2E2E] hover:bg-[#5C3A3A] active:bg-[#3D2828] text-[#FDFBF7] font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-[0.2em] transition-all duration-200 disabled:opacity-40 shadow-[0_8px_20px_-4px_rgba(74,46,46,0.25)] hover:shadow-[0_12px_24px_-4px_rgba(74,46,46,0.32)] hover:-translate-y-0.5 active:translate-y-0.5 block"
           >
             {recipe ? 'New Ticket' : 'Curate Order'}
           </button>
@@ -374,7 +379,7 @@ export default function Home() {
           {recipe && (
             <button
               onClick={() => setRecipe(null)}
-              className="text-[10px] text-[#A68282] hover:text-[#4A2E2E] uppercase tracking-widest font-bold block mx-auto transition-colors duration-200"
+              className="text-[9px] text-[#A68282] hover:text-[#4A2E2E] uppercase tracking-widest font-bold block mx-auto transition-colors duration-200"
             >
               Trash Check
             </button>
