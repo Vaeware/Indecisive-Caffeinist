@@ -132,7 +132,7 @@ export default function Home() {
           <div className="inline-flex items-center space-x-1.5 px-3 py-0.5 bg-[#EFE2D8] border border-[#D8C4B8] rounded-full shadow-sm select-none">
             <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
             <span className="text-[9px] font-mono uppercase tracking-[0.22em] text-[#865750] font-bold">
-              Espresso Bar Station
+              Espresso Station
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#9E5D52]" />
           </div>
